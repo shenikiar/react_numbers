@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 
 //random dog pics, for Home Page
@@ -60,3 +59,4 @@ class Home extends Component {
 }
 
 export default Home;
+

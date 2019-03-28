@@ -62,3 +62,4 @@ Following is the complete PDF API url -
 https://pdf.astrologyapi.com/v1/basic_horoscope_pdf
 
 Please note that all Vedic Rishi APIs use POST method for API call and so does PDF APIs.
+

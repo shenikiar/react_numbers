@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 
 
@@ -74,3 +73,4 @@ class Meaning extends Component {
 }
 
 export default Meaning;
+
