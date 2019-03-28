@@ -1,28 +1,56 @@
+
 import React, { Component } from "react";
 
+//random dog pics, for Home Page
+//const img = randomPic();
+
+
+
 class Home extends Component {
+    state = {dogurl:null}
+    componentDidMount(){
+        fetch("https://random.dog/woof.json?filter=mp4,webm")
+        .then(response => response.json())
+            .then(data => {
+    console.log(data)
+    this.setState({dogurl: data.url})
+})
+.catch(error => console.error(error))
+
+    }
   render() {
     return (
+        
+          
       <div>
-        <h2>Whats Your Birthday Mean?</h2>
-        <p>Ever wonder if there is really any relevance to numbers and if so,
-        could the say you were born have some meaning?  I won't pretend to be
-        a scholar of numerology, astrology, or history but I will admit to being
-        curious about a lot and just enough to want to find out.</p>
+        <img src={this.state.dogurl}/>
+        <h2>Just For Fun!!!</h2>
+        <p>What does your birthday and Marvel have in common?  Possibly absolutely nothing. But Ive come up with a fun way to find out.  And I am curious just enough to want to find out.</p>
 
-        <p>So let's try your date of birth and see if what is revealed is interesting.</p>
+        <p>So let us try your date of birth and see if what is revealed is interesting.</p>
+        
+        {/*enter name and birthday*/}
+        <form className="dropdown-menu p-4" 
+        form action="https://gateway.marvel.com:443/v1/public/events?modifiedSince=09151979&apikey=722a6e83697311402287253d0951d50b"
+        method="POST"
+        >
+          <div className="form-group">
+            <label htmlFor="name">First name</label>
+            <input type="text" className="form-control" id="name" placeholder="name"/>
 
-        <form class="dropdown-menu p-4">
-          <div class="form-group">
-            <label for="name">First name</label>
-            <input type="name" class="form-control" id="name" placeholder="name"/>
-
-            <label for="birthday">Date of Birth</label>
-            <input type="birthday" class="form-control" id="birthday" placeholder="Birthday"/>
-
-
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Here we Go!
+            <label htmlFor="birthday">Date of Birth</label>
+            <input type="date" className="form-control" id="birthday" placeholder="Birthday"/>
+        
+            <label htmlFor="sign">Sign</label>
+            <input type="sign" className="form-control" id="sign" placeholder="sign"/>
+            
+            {/*button that accepts name and birthday to call API*/}
+            <button type="button" className="btn btn-dark" aria-haspopup="true" aria-expanded="false">
+        
+        
+        
+    
+        Here we Go!
             </button>
           </div>
         </form>
