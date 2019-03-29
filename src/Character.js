@@ -25,6 +25,10 @@ class Character extends Component {
     render() {
         return (
             <>
+            <div>
+           <h2>Is This You?</h2>
+           <p>Hopefully what follows is a snippet of your personality on today. </p>
+        </div>
           <div>
               Current Date: {this.state.json.current_date} <br />
               Compatibility: {this.state.json.compatibility} <br />
@@ -35,10 +39,6 @@ class Character extends Component {
               Mood: {this.state.json.mood} <br />
               Description: {this.state.json.description} <br />
           </div>
-            <div>
-           <h2>Is This You?</h2>
-           <p>Hopefully what follows is snippet of your personality. </p>
-        </div>
             </>
         );
     }

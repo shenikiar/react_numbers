@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 
-class Meaning extends Component {
+class Marvel extends Component {
   constructor() {
     super ()
     this.state = {
@@ -12,17 +12,17 @@ class Meaning extends Component {
   }
 
     async componentDidMount(){
-        const marvel ='https://gateway.marvel.com:443/v1/public/events?modifiedSince=09151979&apikey=722a6e83697311402287253d0951d50b';
-        fetch(marvel, 
-        {method: 'POST'
-        }).then(response=>response.json())
-        .then(json=>{this.setState({json});
-        });
+        fetch("http://numbersapi.com/random/date ")
+        .then(response => response.json())
+            .then(data => {
+    console.log(data)
+    this.setState({dogurl: data.url})
             }
 
-      render(){
+       render(){
         return(
           
+        <>
         <div>
         <h2>Does It All Add Up?</h2>
         <p>If this works correctly, hopely you are seeing an explanation for the numbers that make up your date of birth.</p>
@@ -67,10 +67,11 @@ class Meaning extends Component {
           </label>
         </div>
       </div>
-   
+   </>
     );
   }
 }
+}
 
-export default Meaning;
+export default Marvel;
 
